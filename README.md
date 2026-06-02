@@ -41,3 +41,13 @@ Tela 4 - Minha reserva (depois de efetuar a reserva o usuário pode consultar)
     São Paulo / Rio de Janeiro / 04/06/2026
     
 - Caso insira uma data sem viagens irá aparecer a mensagem de nenhuma viagem encontrada
+
+## Sugestões
+
+- Eu segui a arquitetura sugerida de separar em pasta de: components, pages, services, etc.
+- Mas a que recomendo para aplicações escaláveis é a arquitetura em camadas baseada em Features.
+- Nela temos o CORE / FEATURES / SHARED. Já pensando que a aplicação pode ser escalada com mais funcionalidades ou até outras vertentes, seria o ideal, pois nela fica tudo mais organizado ainda e separado em "módulos" que seria cada Feature.
+Mas nesse caso que é somente um teste e vejo sendo uma aplicação pequena não se faz necessário.
+
+- Avaliar regra de negócio se caso a página recarregue o usuário volte para a tela de passagens (foi o que eu fiz), mas isso deve ser avaliado se mantenho salvando o estado em uma SERVICE que centraliza todos os dados, ou se salva exemplo em um sessionStorage, para caso a página recarregue ou o usuário feche e abra a guia ele mantenha com sua opção selecionada.
+- Mas de toda forma precisa analisar com o Back-End também se não seria melhor sempre voltar pra inicial, e não ficar consultando sempre na API todo o fluxo anterior caso recarregue a página
