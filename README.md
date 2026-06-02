@@ -1,13 +1,14 @@
 # OnibusExpress
 
-Projeto gerado em Angular 20.3.25.
-Node: 22.12.0
+- Projeto gerado em Angular 20.3.25.
+- Node: 22.12.0
 
-## Rodar o projeto
+## Rodar o projeto localmente
 
 Para rodar basta baixa-lo do Github
+- Abrir o CMD na pasta do projeto
 - Rodar o comando "npm install" (já com o node instalado)
-- Rodar "ng serve" ou "npm run start" e abrir a url `http://localhost:4200/` no browser.
+- Rodar "npm run start" ou "ng serve" e abrir a url `http://localhost:4200/` no browser.
 - Rodar testes rode "npm run test". Esse caminho irá abrir o coverage para consultar file:///C:/Users/seuUsuario/documents/angular/onibus-express/coverage/lcov-report/index.html
 
 ## Capturas de tela da aplicação + Testes unitários em JEST
