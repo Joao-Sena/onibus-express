@@ -1,0 +1,71 @@
+<section class="container">
+  <h1 class="title">Confirmação da Compra</h1>
+
+  @if (trip && seat) {
+    <div class="card">
+      <h2>Resumo da compra</h2>
+      <div class="row">
+        <div>
+          <label class="item-title">Rota</label>
+          <p class="item-info">{{ trip.associatedRoute.origin }} → {{ trip.associatedRoute.destination }}</p>
+        </div>
+        <div>
+          <label class="item-title">Data</label>
+          <p class="item-info">{{ trip.departureDate | date:'dd/MM/yyyy' }}</p>
+        </div>
+        <div>
+          <label class="item-title">Horário</label>
+          <p class="item-info">{{ trip.departureTime }} → {{ addMinutes(trip.departureTime, trip.associatedRoute.estimatedDuration) }}</p>
+        </div>
+        <div>
+          <label class="item-title">Assento</label>
+          <p class="item-info">{{ seat }}</p>
+        </div>
+        <div>
+          <label class="item-title">Preço</label>
+          <p class="item-info">R$ {{ trip.basePrice | number:'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (!confirmed) {
+    <div class="card">
+      <h2>Dados do Passageiro</h2>
+      <form [formGroup]="form" class="form">
+        <div class="field">
+          <label>Nome completo</label>
+          <input formControlName="fullName" placeholder="João da Silva" />
+        </div>
+        <div class="field">
+          <label>CPF</label>
+          <input formControlName="cpf" placeholder="000.000.000-00" maxlength="14" />
+          @if (form.get('cpf')?.touched && form.get('cpf')?.errors?.['required']) {
+            <span class="field-error">CPF é obrigatório</span>
+          }
+          @if (form.get('cpf')?.touched && form.get('cpf')?.errors?.['pattern']) {
+            <span class="field-error">Formato incorreto (Siga este formato: 000.000.000-00)</span>
+          }
+          @if (form.get('cpf')?.dirty && form.get('cpf')?.errors?.['cpfInvalido']) {
+            <span class="field-error">CPF inválido</span>
+          }
+        </div>
+        <div class="field">
+          <label>E-mail</label>
+          <input formControlName="email" placeholder="joao@email.com" type="email" />
+        </div>
+      </form>
+    </div>
+
+    <button class="btn-buy" [disabled]="form.invalid" (click)="confirm()">Comprar</button>
+  }
+
+  @if (confirmed) {
+    <div class="card success-card">
+      <img src="assets/images/sucesso.png" width="300px">
+      <p class="success-text">Reserva efetuada com sucesso!</p>
+      <p class="booking-code">Código da reserva: <strong>{{ bookingCode }}</strong></p>
+    </div>
+  }
+
+</section>

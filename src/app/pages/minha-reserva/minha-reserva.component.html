@@ -1,0 +1,72 @@
+<section class="container">
+  <h1 class="title">Minha Reserva</h1>
+
+  @if (!booking) {
+    <div class="information-image">
+      <img src="assets/images/pesquisar.png" width="500px">
+      <p class="empty">Você ainda não fez sua reserva. <br> Faça sua reserva agora mesmo!</p>
+      <button class="btn-voltar" routerLink="/passagens">Buscar Passagens</button>
+    </div>
+  }
+
+  @if (booking) {
+    <div class="card">
+      <h2>Resumo da Reserva</h2>
+
+      <div class="row">
+        <div>
+          <label class="item-title">Código da reserva</label>
+          <p class="item-info booking-code">{{ booking.bookingId }}</p>
+        </div>
+        <div>
+          <label class="item-title">Rota</label>
+          <p class="item-info">{{ booking.trip.associatedRoute.origin }} → {{ booking.trip.associatedRoute.destination }}</p>
+        </div>
+        <div>
+          <label class="item-title">Data</label>
+          <p class="item-info">{{ booking.trip.departureDate | date:'dd/MM/yyyy' }}</p>
+        </div>
+        <div>
+          <label class="item-title">Horário</label>
+          <p class="item-info">{{ booking.trip.departureTime }} → {{ addMinutes(booking.trip.departureTime, booking.trip.associatedRoute.estimatedDuration) }}</p>
+        </div>
+        <div>
+          <label class="item-title">Assento</label>
+          <p class="item-info">{{ booking.seat }}</p>
+        </div>
+        <div>
+          <label class="item-title">Preço</label>
+          <p class="item-info">R$ {{ booking.trip.basePrice | number:'1.2-2' }}</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row">
+        <div>
+          <label class="item-title">Passageiro</label>
+          <p class="item-info">{{ booking.passenger.fullName }}</p>
+        </div>
+        <div>
+          <label class="item-title">CPF</label>
+          <p class="item-info">{{ booking.passenger.cpf }}</p>
+        </div>
+        <div>
+          <label class="item-title">E-mail</label>
+          <p class="item-info">{{ booking.passenger.email }}</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="status-section">
+        <div>
+          <label class="item-title">Status da reserva</label>
+          <p class="status-ativa">Ativa</p>
+        </div>
+        <button class="btn-cancelar" (click)="cancelBooking()">Cancelar reserva</button>
+      </div>
+    </div>
+  }
+
+</section>

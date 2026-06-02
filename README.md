@@ -1,59 +1,42 @@
 # OnibusExpress
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.25.
+Projeto gerado em Angular 20.3.25.
+Node: 22.12.0
 
-## Development server
+## Rodar o projeto
 
-To start a local development server, run:
+Para rodar basta baixa-lo do Github
+- Rodar o comando "npm install" (já com o node instalado)
+- Rodar "ng serve" ou "npm run start" e abrir a url `http://localhost:4200/` no browser.
+- Rodar testes rode "npm run test". Esse caminho irá abrir o coverage para consultar file:///C:/Users/seuUsuario/documents/angular/onibus-express/coverage/lcov-report/index.html
 
-```bash
-ng serve
-```
+## Capturas de tela da aplicação + Testes unitários em JEST
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Tela 1 - Cenários: Inicial / Carregamento / Lista de passagens / Destino sem viagens listadas
+<span>
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-1-sem-dados.png" width="80%">
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-1-loading.png" width="80%">
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-1-passagens.png" width="80%">
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-1-sem-destino.png" width="80%">
+</span>
 
-## Code scaffolding
+Tela 2 - Assentos
+<span>
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-2-assentos.png" width="80%">
+</span>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Tela 3 - Formulário Passageiro e Confirmação de Reserva
+<span>
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-3-formulario-passageiro.png" width="80%">
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-3-reserva-efetuada.png" width="80%"> 
+</span>
 
-```bash
-ng generate component component-name
-```
+Tela 4 - Minha reserva (depois de efetuar a reserva o usuário pode consultar)
+<span>
+    <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-4-minha-reserva.png" width="80%">
+</span>
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Como meu teste é de Front-End fiz um arquivo de Mock das viagens, para ver viagens disponíveis use o filtro com mais viagens:
+    São Paulo / Rio de Janeiro / 04/06/2026
+    
+- Caso insira uma data sem viagens irá aparecer a mensagem de nenhuma viagem encontrada

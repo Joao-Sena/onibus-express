@@ -1,0 +1,48 @@
+<section class="container">
+  <h1 class="title">Selecione seu assento</h1>
+
+  @if(trip) {
+    
+    <div class="card">
+      <h2>Resumo da viagem - Escolha um assento disponível para prosseguir</h2>
+
+      <div class="row">
+        <div>
+          <label class="trip-title">Rota</label>
+          <p class="trip-info">{{trip.associatedRoute.origin}} → {{trip.associatedRoute.destination}}</p>
+        </div>
+
+        <div>
+          <label class="trip-title">Data</label>
+          <p class="trip-info">{{trip.departureDate | date:'dd/MM/yyyy'}}</p>
+        </div>
+
+        <div>
+          <label class="trip-title">Hora</label>
+          <p class="trip-info">{{ trip.departureTime }} → {{ addMinutes(trip.departureTime, trip.associatedRoute.estimatedDuration) }}</p>
+        </div>
+
+        <div>
+          <label class="trip-title">Preço</label>
+          <p class="trip-info">R$ {{ trip.basePrice | number:'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+  
+  }
+
+  <div class="bus-body">
+    @for (row of seatRows; track $index) {
+      <div class="fileira">
+        <div class="seat" [class.selected]="selectedSeat === row[0].number" [class.unavailable]="!row[0].available" (click)="selectSeat(row[0])">{{ row[0].number }}</div>
+        <div class="seat" [class.selected]="selectedSeat === row[1].number" [class.unavailable]="!row[1].available" (click)="selectSeat(row[1])">{{ row[1].number }}</div>
+        <div class="corredor"></div>
+        <div class="seat" [class.selected]="selectedSeat === row[2].number" [class.unavailable]="!row[2].available" (click)="selectSeat(row[2])">{{ row[2].number }}</div>
+        <div class="seat" [class.selected]="selectedSeat === row[3].number" [class.unavailable]="!row[3].available" (click)="selectSeat(row[3])">{{ row[3].number }}</div>
+      </div>
+    }
+  </div>
+
+  <button class="btn-confirm" [disabled]="!selectedSeat" (click)="confirmSeat()">Confirmar assento</button>
+
+</section>

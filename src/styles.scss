@@ -1,1 +1,20 @@
+$primary-color: #086cb4;
+$secondary-color: #0a5e9a;
+
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+}
+
 /* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  padding: 4px 38px;
+  width: 100%;
+  box-sizing: border-box;
+}

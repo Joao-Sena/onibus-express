@@ -1,0 +1,149 @@
+:host {
+  display: block;
+}
+
+.title {
+  color: var(--primary-color);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.search-form{
+  width: 100%;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 3px 1px #0a0a0a20;
+  box-sizing: border-box;
+}
+
+.search-form .row {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1.5rem;
+}
+
+.search-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--primary-color);
+  flex: 1;
+}
+
+.search-form input {
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+}
+
+.btn-search {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-search:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.results {
+  margin-top: 1rem;
+}
+
+.empty {
+  color: #666;
+  padding: 1.6rem 0;
+}
+
+
+// Ajustes dos cards de viagens
+
+.subtitle {
+  color:#272727;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 38px 0px 2px;
+  padding-top: 30px;
+  border-top: 1px solid #dbdbdb;
+}
+
+.destaque{ color: #11a857; }
+
+.card-trip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 3px 1px #0a0a0a20;
+  margin-bottom: 1rem;
+  border-left: 5px solid var(--primary-color);
+}
+
+.trip-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bus {
+  width: 24px;
+}
+
+.time {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.route {
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.trip-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.seats {
+  color: #757575;
+  font-weight: 600;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 22px;
+  color: #11a857;
+}
+
+.btn-select {
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: linear 0.2s all;
+
+  &:hover{
+    cursor: pointer;
+    background: var(--primary-color);
+    color: #fff;
+  }
+}
+
+.information-image{
+    width: 100%;
+    text-align: center;
+}

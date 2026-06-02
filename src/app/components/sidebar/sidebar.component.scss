@@ -1,0 +1,66 @@
+:host {
+  display: block;
+}
+
+.sidebar {
+  width: 170px;
+  height: 100vh;
+  padding: 2rem 0;
+  background: var(--primary-color);
+  box-shadow: 2px 0px 8px 5px #0a0a0a40;
+  border: 1px solid rgba(45, 8, 180, 0.06);
+  box-sizing: border-box;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 50px;
+}
+
+.logo {
+    width: 140px;
+    margin: 0 auto;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 12px;
+  border: none;
+  background: var(--secondary-color);
+  color: #fff;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background: #244eb9;
+}
+
+.sidebar-link.active {
+    background: #1c3e95;
+  border-left: 3px solid #fff;
+}
+
+.icon {
+    width: 18px;
+    margin-right: 14px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}

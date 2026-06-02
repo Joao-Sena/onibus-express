@@ -1,0 +1,66 @@
+<section class="container">
+  <h1 class="title">Buscar Passagens</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSearch()" class="search-form">
+    <div class="row">
+      <label>Origem
+        <input formControlName="origin" placeholder="São Paulo" />
+      </label>
+
+      <label>Destino
+        <input formControlName="destination" placeholder="Rio de Janeiro" />
+      </label>
+
+      <label>Data de ida
+        <input type="date" formControlName="date" />
+      </label>
+
+      <button class="btn-search" type="submit" [disabled]="form.invalid">BUSCAR</button>
+    </div>
+  </form>
+
+  @if(submitted && results?.length && !loading) {
+      <h2 class="subtitle">Viagens de <span class="destaque">{{ form.value.origin }}</span> para <span class="destaque">{{ form.value.destination }}</span></h2>
+  }
+
+  <div class="results">
+    @if (submitted && results?.length && !loading) {
+        @for (trip of results; track $index) {
+          <div class="card-trip">
+            <div class="trip-left">
+              <img class="bus" src="assets/images/onibus.png"/>
+              <div class="time">{{ trip.departureTime }} → {{ addMinutes(trip.departureTime, trip.associatedRoute.estimatedDuration) }}</div>
+            </div>
+
+              <div class="seats">{{ trip.availableSeats }} vagas restantes</div>
+              <div class="price">R$ {{ trip.basePrice | number:'1.2-2' }}</div>
+
+            <div class="trip-right">
+              <button class="btn-select" (click)="selectTravel(trip)">Selecionar</button>
+            </div>
+          </div>
+        }
+    }
+
+    @if (!submitted && !loading) {
+        <div class="information-image">
+            <img src="assets/images/pesquisar.png" width="500px">
+            <p class="empty">Insira sua origem, destino e data de ida no formulário acima para consultar as viagens disponíveis</p>
+        </div>
+    }
+
+    @if (submitted && !results?.length && !loading) {
+        <div class="information-image">
+            <img src="assets/images/vazio.png" width="500px">
+            <p class="empty">Nenhuma viagem encontrada para os critérios informados.</p>
+        </div>
+    }
+
+    @if(loading) {
+        <div class="information-image">
+            <img src="assets/images/loading.gif" width="300px">
+            <p class="empty">Consultando viagens disponíveis ...</p>
+        </div>
+    }
+  </div>
+</section>

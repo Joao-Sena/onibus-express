@@ -1,0 +1,23 @@
+.app-layout {
+	display: flex;
+	align-items: flex-start;
+	min-height: 100vh;
+	background: #f5f6fb;
+}
+
+.app-content {
+	flex: 1 1 auto;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+	.app-layout {
+		flex-direction: column;
+	}
+
+	.app-content {
+		padding: 1rem;
+	}
+}
+
