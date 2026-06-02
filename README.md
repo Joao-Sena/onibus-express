@@ -20,7 +20,7 @@ Tela 1 - Cenários: Inicial / Carregamento / Lista de passagens / Destino sem vi
     <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-1-sem-destino.png" width="80%">
 </span>
 
-Tela 2 - Assentos
+Tela 2 - Reserva de assentos com listagem deles
 <span>
     <img src="https://raw.githubusercontent.com/Joao-Sena/onibus-express/main/src/assets/capturas/tela-2-assentos.png" width="80%">
 </span>
