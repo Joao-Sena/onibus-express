@@ -20,6 +20,25 @@ export class MinhaReservaComponent implements OnInit {
     }
   }
 
+  isCancelDisabled(): boolean {
+    if (!this.booking) return true
+
+    const now = new Date()
+    const [year, month, day] = this.booking.trip.departureDate.split('-').map(Number)
+    const [hours, minutes] = this.booking.trip.departureTime.split(':').map(Number)
+    const departure = new Date(year, month - 1, day, hours, minutes)
+
+    const sameDay =
+      now.getFullYear() === departure.getFullYear() &&
+      now.getMonth() === departure.getMonth() &&
+      now.getDate() === departure.getDate()
+
+    if (!sameDay) return false
+
+    const diffHours = (departure.getTime() - now.getTime()) / (1000 * 60 * 60)
+    return diffHours < 2
+  }
+
   cancelBooking(): void {
     localStorage.removeItem('booking')
     this.booking = null

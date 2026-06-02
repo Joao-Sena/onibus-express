@@ -64,7 +64,7 @@
           <label class="item-title">Status da reserva</label>
           <p class="status-ativa">Ativa</p>
         </div>
-        <button class="btn-cancelar" (click)="cancelBooking()">Cancelar reserva</button>
+        <button class="btn-cancelar" [disabled]="isCancelDisabled()" (click)="cancelBooking()">Cancelar reserva</button>
       </div>
     </div>
   }
