@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "node_modules/*",
+    "dist/*",
+    "coverage/*",
+    "public/*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": ["./tsconfig.app.json", "./tsconfig.spec.json"],
+        "sourceType": "module"
+      },
+      "plugins": ["@typescript-eslint", "@angular-eslint"],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@angular-eslint/directive-selector": "off",
+        "@angular-eslint/component-selector": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "parser": "@angular-eslint/template-parser",
+      "plugins": ["@angular-eslint/template"],
+      "extends": ["plugin:@angular-eslint/template/recommended"]
+    }
+  ]
+}
